@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
 
 class App extends React.Component {
-//this is the very first function i.e. going to be called any time the instance of this class is created
-  constructor(props){
-    super(props);
-    //reference to the parents constructor function
-    this.state = {lat: null, errorMessage: ''};
-    //initialising the state
 
-  }
+  state = {lat: null, errorMessage: ''};
 
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
@@ -26,7 +21,7 @@ class App extends React.Component {
         return   <div>Error: {this.state.errorMessage}</div>;
       }
       if(!this.state.errorMessage && this.state.lat) {
-        return   <div>Latitude: {this.state.lat}</div>;
+        return   <SeasonDisplay lat={this.state.lat}/>
       }
 
       return <div>Loading!</div>;
