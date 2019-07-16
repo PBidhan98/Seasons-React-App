@@ -4,7 +4,7 @@ import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
 
 class App extends React.Component {
-
+//initialising the state as an instance property
   state = {lat: null, errorMessage: ''};
 
   componentDidMount() {
@@ -15,6 +15,8 @@ class App extends React.Component {
     );
   }
 
+
+//helper function
   renderContent(){
     if(this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
